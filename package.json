@@ -2,6 +2,9 @@
   "name": "cryptovault",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
@@ -16,10 +19,7 @@
     "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
     "db:reset": "prisma migrate reset --force",
-    "postbuild": "next-sitemap",
-    "analyze": "cross-env ANALYZE=true npm run build",
-    "clean": "rimraf .next out",
-    "prepare": "husky install"
+    "clean": "rm -rf .next out"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
@@ -43,22 +43,11 @@
     "@types/node": "^20.17.57",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.10",
-    "next-sitemap": "^4.2.3",
     "postcss": "^8.5.4",
     "prisma": "^6.8.2",
-    "rimraf": "^6.0.1",
     "tsx": "^4.19.2",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   }
 }
