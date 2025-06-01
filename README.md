@@ -218,8 +218,8 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 ## 👨‍💻 Autor
 
 **Tu Nombre**
-- GitHub: [@tu-usuario](https://github.com/piodois)
-- LinkedIn: [Tu LinkedIn](https://linkedin.com/in/piocerda)
+- GitHub: [@Piodois](https://github.com/piodois)
+- LinkedIn: [Pio Cerda](https://linkedin.com/in/piocerda)
 
 ---
 
