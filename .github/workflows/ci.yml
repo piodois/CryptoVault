@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI
 
 on:
   push:
@@ -30,10 +30,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'  # Cambiado de 18 a 20
+        node-version: '20'
         cache: 'npm'
 
-    - name: Delete package-lock.json  # Regenerar el lockfile
+    - name: Delete package-lock.json
       run: rm -f package-lock.json
 
     - name: Install dependencies
@@ -59,18 +59,17 @@ jobs:
         JWT_SECRET: test-jwt-secret
       run: npm run build
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Deploy to Vercel
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.ORG_ID }}
-        vercel-project-id: ${{ secrets.PROJECT_ID }}
-        vercel-args: '--prod'
+  # Comentado temporalmente hasta configurar Vercel
+  # deploy:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/main'
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - name: Deploy to Vercel
+  #     uses: amondnet/vercel-action@v25
+  #     with:
+  #       vercel-token: ${{ secrets.VERCEL_TOKEN }}
+  #       vercel-org-id: ${{ secrets.ORG_ID }}
+  #       vercel-project-id: ${{ secrets.PROJECT_ID }}
+  #       vercel-args: '--prod'
